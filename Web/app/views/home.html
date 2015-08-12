@@ -1,0 +1,146 @@
+﻿<h2>Menu Creation</h2>
+
+<strong>Select a country of choice to see menu items:</strong>
+
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        <span ng-hide="vm.selectedCountry">Select country</span>
+        <span ng-show="vm.selectedCountry != null">{{vm.selectedCountry}}</span>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation" ng-click="vm.getMenuItems('US')"><a role="menuitem" tabindex="-1" href="#">US</a></li>
+        <li role="presentation" ng-click="vm.getMenuItems('GB')"><a role="menuitem" tabindex="-1" href="#">GB</a></li>
+    </ul>
+</div>
+
+<div style="margin-top:40px;" ng-show="vm.selectedCountry != null">
+    <div class="row">
+        <div class="col-sm-2">
+            <h2>Diner</h2>
+            <a ng-href="/Home/Download?restaurantType=Diner&downloadType=Plain&country={{vm.selectedCountry}}">
+                <button class="btn btn-primary btn-block glyphicon glyphicon-download-alt"> Plain</button>
+            </a>
+            <a ng-href="/Home/Download?restaurantType=Diner&downloadType=HTML&country={{vm.selectedCountry}}">
+                <button class="btn btn-primary btn-block glyphicon glyphicon-download-alt"> HTML</button>
+            </a>
+            <a ng-href="/Home/Download?restaurantType=Diner&downloadType=XML&country={{vm.selectedCountry}}">
+                <button class="btn btn-primary btn-block glyphicon glyphicon-download-alt"> XML</button>
+            </a>
+        </div>
+        <div class="col-sm-10">
+            <div class="row">
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Breakfast</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Breakfast'}">{{item.name}}</li>
+                </ul>
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Lunch</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Lunch'}">{{item.name}}</li>
+                </ul>
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Snack</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Snack'}">{{item.name}}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Appetizer</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Appetizer'}">{{item.name}}</li>
+                </ul>
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Dessert</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Dessert'}">{{item.name}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-2">
+            <h2>Evening Only</h2>
+            <a ng-href="/Home/Download?restaurantType=EveningOnly&downloadType=Plain&country={{vm.selectedCountry}}">
+                <button class="btn btn-primary btn-block glyphicon glyphicon-download-alt"> Plain</button>
+            </a>
+            <a ng-href="/Home/Download?restaurantType=EveningOnly&downloadType=HTML&country={{vm.selectedCountry}}">
+                <button class="btn btn-primary btn-block glyphicon glyphicon-download-alt"> HTML</button>
+            </a>
+            <a ng-href="/Home/Download?restaurantType=EveningOnly&downloadType=XML&country={{vm.selectedCountry}}">
+                <button class="btn btn-primary btn-block glyphicon glyphicon-download-alt"> XML</button>
+            </a>
+        </div>
+        <div class="col-sm-10">
+            <div class="row">
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Dinner</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Breakfast'}">{{item.name}}</li>
+                </ul>
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Side Dish</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Side Dish'}">{{item.name}}</li>
+                </ul>
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Appetizer</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Appetizer'}">{{item.name}}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Dessert</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Dessert'}">{{item.name}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-2">
+            <h2>All Day</h2>
+            <a ng-href="/Home/Download?restaurantType=AllDay&downloadType=Plain&country={{vm.selectedCountry}}">
+                <button class="btn btn-primary btn-block glyphicon glyphicon-download-alt"> Plain</button>
+            </a>
+            <a ng-href="/Home/Download?restaurantType=AllDay&downloadType=HTML&country={{vm.selectedCountry}}">
+                <button class="btn btn-primary btn-block glyphicon glyphicon-download-alt"> HTML</button>
+            </a>
+            <a ng-href="/Home/Download?restaurantType=AllDay&downloadType=XML&country={{vm.selectedCountry}}">
+                <button class="btn btn-primary btn-block glyphicon glyphicon-download-alt"> XML</button>
+            </a>
+        </div>
+        <div class="col-sm-10">
+            <div class="row">
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Breakfast</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Breakfast', country: vm.selectedCountry}">{{item.name}}</li>
+                </ul>
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Lunch</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Lunch', country: vm.selectedCountry}">{{item.name}}</li>
+                </ul>
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Snack</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Snack', country: vm.selectedCountry}">{{item.name}}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Side Dish</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Side Dish', country: vm.selectedCountry}">{{item.name}}</li>
+                </ul>
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Appetizer</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Appetizer', country: vm.selectedCountry}">{{item.name}}</li>
+                </ul>
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Dinner</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Dinner', country: vm.selectedCountry}">{{item.name}}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <ul class="col-sm-4 list-group">
+                    <li class="list-group-item"><strong>Dessert</strong></li>
+                    <li class="list-group-item" ng-repeat="item in vm.menuItems | filter:{category: 'Dessert', country: vm.selectedCountry}">{{item.name}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
